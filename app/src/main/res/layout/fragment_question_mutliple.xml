@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.navigation.game.GameFragment">
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.example.sunshine.quizapp.multipleAnswerQuestion.MulipleViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:fillViewport="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/multiple_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/questionImage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/image_header_height"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/questionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/ic_answer" />
+
+            <TextView
+                android:id="@+id/questionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/question_horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/question_horizontal_margin"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="sans-serif"
+                android:text="@{game.currentQuestion.question}"
+                android:textSize="@dimen/question_text_size"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionImage"
+                tools:text="What color is the Android mascot?" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:checked="@{game.checkBoxState[0]}"
+                android:onClick="@{(view)->game.onCheckboxClicked(view)}"
+                android:text="@{game.answers[0]}"
+                android:textSize="@dimen/answer_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionText"
+                tools:text="answer A" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:checked="@{game.checkBoxState[1]}"
+                android:onClick="@{(view)->game.onCheckboxClicked(view)}"
+                android:text="@{game.answers.get(1)}"
+                android:textSize="@dimen/answer_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox"
+                tools:text="answer B" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:checked="@{game.checkBoxState[2]}"
+                android:onClick="@{(view)->game.onCheckboxClicked(view)}"
+                android:text="@{game.answers.get(2)}"
+                android:textSize="@dimen/answer_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox1"
+                tools:text="answer C" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:checked="@{game.checkBoxState[3]}"
+                android:onClick="@{(view)->game.onCheckboxClicked(view)}"
+                android:text="@{game.answers.get(3)}"
+                android:textSize="@dimen/answer_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+                tools:text="answer D" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/question_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/question_horizontal_margin"
+                android:text="@string/next_button"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.768"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/question_horizontal_margin"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="@dimen/question_horizontal_margin"
+                android:text="@string/submit_button"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.236"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

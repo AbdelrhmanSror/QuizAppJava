@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submit_button">submit</string>
+    <string name="next_button">next</string>
+
+    <string name="ResultMessage">Number of correct answer is %1$d</string>
+    <string name="nextMessage">You have Answered All the Questions ,Please Submit to get the result</string>
+    <string name="NoAnswer">Please, select the answer</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="play">Play</string>
+    <string name="textHint">add answer here</string>
+
+    <string name="multiple">Multiple Choice</string>
+    <string name="single">Single Choice</string>
+    <string name="textEntry">Text Entry</string>
+    <string name="category">Category</string>
+
+    <string-array name="levels">
+        <item>@string/single</item>
+        <item>@string/multiple</item>
+        <item>@string/textEntry</item>
+    </string-array>
+    <string-array name="levelsValue">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+
+    </string-array>
+
+</resources>
